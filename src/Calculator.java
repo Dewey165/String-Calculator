@@ -22,7 +22,12 @@ public class Calculator {
 			//Taken from the Hannes Petursson in lecture..
 			for(String number : inputs)
 			{
-				total += Integer.parseInt(number);
+				int temp = Integer.parseInt(number);
+				if (temp > 1000)
+				{
+					temp = 0;
+				}
+				total += temp;
 			}	
 			return total;
 		}
