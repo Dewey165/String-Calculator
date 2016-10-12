@@ -3,7 +3,7 @@ import static org.hamcrest.CoreMatchers.*;
 
 import org.junit.Test;
 
-public class Tests {
+public class TestingProblemOne {
 	//Kata Steps 1
 	@Test
 	public void TestingZeroNumber()
@@ -47,5 +47,5 @@ public class Tests {
 	{
 		assertThat(2, not(Calculator.add("1,2,3")));
 	}
-	
 }
+
