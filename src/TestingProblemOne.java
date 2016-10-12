@@ -4,46 +4,47 @@ import static org.hamcrest.CoreMatchers.*;
 import org.junit.Test;
 
 public class TestingProblemOne {
-	//Kata Steps 1
+	/*Create a String calculator with a method int Add(string numbers)
+	*/
 	@Test
-	public void TestingZeroNumber()
+	public void TestingZeroNumber() throws NoNegativeNumbers
 	{
 		assertEquals(0, Calculator.add(""));
 	}
 	@Test
-	public void TestingOneNumber()
+	public void TestingOneNumber() throws NoNegativeNumbers
 	{
-		assertEquals(1, Calculator.add("1"));
+			assertEquals(1, Calculator.add("1"));
 	}
 	@Test
-	public void TestingTwoNumbers()
+	public void TestingTwoNumbers() throws NoNegativeNumbers
 	{
-		assertEquals(3, Calculator.add("1,2"));
+			assertEquals(3, Calculator.add("1,2"));
 	}
 	
 	@Test
-	public void TestingThreeNumbers()
+	public void TestingThreeNumbers() throws NoNegativeNumbers
 	{
-		assertEquals(6, Calculator.add("1,2,3"));
+			assertEquals(6, Calculator.add("1,2,3"));
 	}
 	//seen at http://stackoverflow.com/questions/1096650/why-doesnt-junit-provide-assertnotequals-methods
 	@Test
-	public void WorstCaseTestingZeroNumber()
+	public void WorstCaseTestingZeroNumber() throws NoNegativeNumbers
 	{
-		assertThat(1, not(Calculator.add("")));
+			assertThat(1, not(Calculator.add("")));
 	}
 	@Test
-	public void WorstCaseTestingOneNumber()
+	public void WorstCaseTestingOneNumber() throws NoNegativeNumbers
 	{
-		assertThat(2, not(Calculator.add("1")));
+			assertThat(2, not(Calculator.add("1")));
 	}
 	@Test
-	public void WorstCaseTestingTwoNumbers()
+	public void WorstCaseTestingTwoNumbers() throws NoNegativeNumbers
 	{
-		assertThat(2, not(Calculator.add("1,2")));
+			assertThat(2, not(Calculator.add("1,2")));
 	}
 	@Test
-	public void WorstCaseTestingThreeNumbers()
+	public void WorstCaseTestingThreeNumbers() throws NoNegativeNumbers
 	{
 		assertThat(2, not(Calculator.add("1,2,3")));
 	}

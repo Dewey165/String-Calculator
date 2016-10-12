@@ -1,19 +1,12 @@
-import java.util.Scanner;
-
 public class Calculator {
-	private Scanner reader;
 	
-	public int main()
+	public static int add(String text) throws NoNegativeNumbers
 	{
-		System.out.print("Input for Calculator: ");
-		reader = new Scanner(System.in);
-		String input = reader.next();
-		System.out.println(add(input));
-		return 0;
-	}
-	
-	public static int add(String text)
-	{
+		if(text.contains("-"))
+		{
+			String numbers = findNegativeNumbers(text);
+			throw new NoNegativeNumbers(numbers);
+		}
 		if(text.equals(""))
 		{
 			return 0;
@@ -30,13 +23,32 @@ public class Calculator {
 			for(String number : inputs)
 			{
 				total += Integer.parseInt(number);
-			}
+			}	
 			return total;
 		}
+		
+		
 	}
 	//Taken from Hannes Petursson in lecture..
 	private static String[] splitNumbers(String numbers)
 	{
 		return numbers.split("(,|\n)");
+	}
+	
+	private static String findNegativeNumbers(String numbersWithNegative)
+	{
+		String NegativeNumbers = "";
+		String[] numbers = splitNumbers(numbersWithNegative);
+		
+		for(String number : numbers)
+		{
+			if(Integer.parseInt(number) < 0)
+			{
+				NegativeNumbers += number + ",";
+			}
+		}
+		//found at http://stackoverflow.com/questions/7438612/how-to-remove-the-last-character-from-a-string
+		NegativeNumbers = NegativeNumbers.replace(NegativeNumbers.substring(NegativeNumbers.length()-1), "");
+		return NegativeNumbers;
 	}
 }

@@ -3,20 +3,22 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 public class TestingProblemThree {
-	//Kata Steps 1
+	/*Allow the Add method to handle new lines between numbers
+	 *(instead of commas).
+	 */
 	@Test
-	public void TestingFourNumbers()
+	public void TestingFourNumbers() throws NoNegativeNumbers
 	{
-		assertEquals(10, Calculator.add("1\n2,3,4"));
+			assertEquals(10, Calculator.add("1\n2,3,4"));
 	}
 	@Test
-	public void TestingFiveNumbers()
+	public void TestingFiveNumbers() throws NoNegativeNumbers
 	{
-		assertEquals(15, Calculator.add("0,1\n3\n4,7"));
+			assertEquals(15, Calculator.add("0,1\n3\n4,7"));
 	}
 	@Test
-	public void TestingTenNumbers()
+	public void TestingTenNumbers() throws NoNegativeNumbers
 	{
-		assertEquals(45, Calculator.add("0\n1\n2\n3\n4\n5\n6\n7\n8\n9"));
+			assertEquals(45, Calculator.add("0\n1\n2\n3\n4\n5\n6\n7\n8\n9"));
 	}
 }
