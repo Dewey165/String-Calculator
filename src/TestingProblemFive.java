@@ -7,17 +7,17 @@ public class TestingProblemFive {
 	 * arguments/numbers.
 	 */
 	@Test
-	public void TestingNumbersBiggerThanOneThousand() throws NoNegativeNumbers
+	public void TestingNumbersBiggerThanOneThousand() throws NoNegativeNumbersException
 	{
 		assertEquals(2, Calculator.add("1001,2"));
 	}
 	@Test
-	public void TestingTenNumbersBiggerThanOneThousand() throws NoNegativeNumbers
+	public void TestingTenNumbersBiggerThanOneThousand() throws NoNegativeNumbersException
 	{
 		assertEquals(1000, Calculator.add("0,1,2000,33213,4001,5321,6321,7000,8300,999"));
 	}
 	@Test
-	public void TestingElevenNumbersBiggerThanOneThousand() throws NoNegativeNumbers
+	public void TestingElevenNumbersBiggerThanOneThousand() throws NoNegativeNumbersException
 	{
 		assertEquals(1999, Calculator.add("0,1,2000,33213,4001,5321,6321,7000,8300,999,999"));
 	}
