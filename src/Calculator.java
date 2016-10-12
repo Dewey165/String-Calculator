@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class Calculator {
 	private Scanner reader;
+	
 	public int main()
 	{
 		System.out.print("Input for Calculator: ");
@@ -10,6 +11,7 @@ public class Calculator {
 		System.out.println(add(input));
 		return 0;
 	}
+	
 	public static int add(String text)
 	{
 		if(text.equals(""))
@@ -35,6 +37,6 @@ public class Calculator {
 	//Taken from Hannes Petursson in lecture..
 	private static String[] splitNumbers(String numbers)
 	{
-		return numbers.split(",");
+		return numbers.split("(,|\n)");
 	}
 }
