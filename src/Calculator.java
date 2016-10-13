@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Calculator {
 	
 	public static int add(String text) throws NoNegativeNumbersException
@@ -9,19 +11,8 @@ public class Calculator {
 		}
 		if(text.contains("//") && text.contains("\n"))
 		{
-			int total = 0;
-			String[] inputs = splitNumbersWithNewDelimiter(text);
+			return splitNumbersWithNewDelimiterAndReturnTotal(text);
 			//Taken from the Hannes Petursson in lecture..
-			for(String number : inputs)
-			{
-				int temp = Integer.parseInt(number);
-				if (temp > 1000)
-				{
-					temp = 0;
-				}
-				total += temp;
-			}	
-			return total;
 			
 		}
 		if(text.equals(""))
@@ -73,10 +64,41 @@ public class Calculator {
 		NegativeNumbers = NegativeNumbers.replace(NegativeNumbers.substring(NegativeNumbers.length()-1), "");
 		return NegativeNumbers;
 	}
-	private static String[] splitNumbersWithNewDelimiter(String numbers)
+	private static int splitNumbersWithNewDelimiterAndReturnTotal(String numbers)
 	{
-		char delimiter;
+		String[] findingDelimiter = numbers.split("\n");
+		//finding the delimiter...
+		String temp = findingDelimiter[0];
+		String numbersWithoutStart = findingDelimiter[1];
+		String delimiter = Character.toString(temp.charAt(2));
 		
-		return numbers.split(delimiter);
+		ArrayList<String> ArrayOfNumbers = new ArrayList<String>();
+		String number = "";
+		for(int i = 0; i < findingDelimiter[1].length() - 1; i++)
+		{
+			String index = Character.toString(numbersWithoutStart.charAt(i));
+			if( index != delimiter)
+			{
+				number += index;
+			}
+			else
+			{
+				ArrayOfNumbers.add(number);
+				number = "";
+			}
+		}
+		
+		int total = 0;
+		//tempest is temp
+		for(String tempest : ArrayOfNumbers)
+		{
+			int n = Integer.parseInt(tempest);
+			if (n > 1000)
+			{
+				n = 0;
+			}
+			total += n;
+		}
+		return total;
 	}
 }
