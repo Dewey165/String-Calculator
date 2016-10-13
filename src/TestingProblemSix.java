@@ -11,7 +11,7 @@ public class TestingProblemSix {
 	@Test
 	public void TestingDelimiter() throws NoNegativeNumbersException
 	{
-		assertEquals(3, Calculator.add("//;\n1;2"));
+		assertEquals(12, Calculator.add("//;\n10;2"));
 	}
 	@Test
 	public void TestingNewDelimiter() throws NoNegativeNumbersException

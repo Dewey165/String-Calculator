@@ -74,19 +74,21 @@ public class Calculator {
 		
 		ArrayList<String> ArrayOfNumbers = new ArrayList<String>();
 		String number = "";
-		for(int i = 0; i < findingDelimiter[1].length() - 1; i++)
+		for(int i = 0; i < findingDelimiter[1].length(); i++)
 		{
 			String index = Character.toString(numbersWithoutStart.charAt(i));
-			if( index != delimiter)
-			{
-				number += index;
-			}
-			else
+			if( index.equals(delimiter))
 			{
 				ArrayOfNumbers.add(number);
 				number = "";
 			}
+			else
+			{
+				number += index;
+			}
 		}
+		ArrayOfNumbers.add(number);
+		number = "";
 		
 		int total = 0;
 		//tempest is temp
